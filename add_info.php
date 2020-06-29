@@ -39,14 +39,16 @@ if($result){
     echo($points);
     $query =$conn->query("UPDATE points SET points='$points' WHERE id='$id'");
   }
- } /*else{
-  $result->close();
-   $id = $conn->query("SELECT MAX(id) FROM points");
-   $id =+1;
-    $result = "INSERT INTO points (id, user, points) VALUES ('$id','$user', '$points')";
-  }*/
+  if ($points == 0){
+  $id = $conn->query("SELECT MAX(id) FROM points");
+  while($row = mysqli_fetch_assoc($id)){
+    $MAXid = current($row);
+    $MAXid = $MAXid +1;
+  }
+  $result = $conn->query("INSERT INTO points (id, user, points) VALUES ('$MAXid','$user', '$points')");
+ }
 
-  $result->close();
+  $id->close();
   $conn->close();
 
 ?>
