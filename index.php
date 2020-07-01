@@ -13,9 +13,13 @@
 <div class="container">
   <form method="POST" action="add_info.php">
   <input type="text" name="user" placeholder="Write a username">
-  <input type="text" name="show">
-  <input type="submit" name="submit" value="add">
+  <input id="add" type="submit" name="add" value="add">
+  <input id="show" type="submit" name="show" value="show">
+  <input id="clean" onclick="return confirm('Are you sure? After that you can\'t save your data')"type="submit" name="clean" value="clean">
+  <input id="delete_point" type="submit" name="delete_point" value="-1">
+  <input id="delete" onclick="return confirm('Are you sure? After that you can\'t save your data')" type="submit" name="delete" value="delete">
   </form>
+
 
 </div>
 
